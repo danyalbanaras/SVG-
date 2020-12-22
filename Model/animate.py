@@ -28,6 +28,8 @@ def normalize_kp(kp_source, kp_driving, kp_driving_initial, adapt_movement_scale
         kp_value_diff = (kp_driving['value'] - kp_driving_initial['value'])
         kp_value_diff *= adapt_movement_scale
         kp_new['value'] = kp_value_diff + kp_source['value']
+        
+        #working
 
         if use_relative_jacobian:
             jacobian_diff = torch.matmul(kp_driving['jacobian'], torch.inverse(kp_driving_initial['jacobian']))
